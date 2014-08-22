@@ -1,0 +1,16 @@
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+utilidad:
+    resource: "@UtilidadBundle/Resources/config/routing.yml"
+    prefix:   /
+
+usuario:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /
+
+clubs:
+    resource: "@ClubsBundle/Resources/config/routing.yml"
+    prefix:   /
+
