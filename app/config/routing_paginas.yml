@@ -1,0 +1,7 @@
+pagina_ayuda:
+    path: /ayuda/
+    defaults: { template: 'ClubsBundle:Sitio:ayuda.html.twig' }
+
+pagina_acerdade:
+    path: /acercade/
+    defaults: { template: 'ClubsBundle:Sitio:acercade.html.twig' }
