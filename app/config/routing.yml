@@ -14,11 +14,15 @@ clubs:
     resource: "@ClubsBundle/Resources/config/routing.yml"
     prefix:   /
 
-_paginas_estaticas:
-    resource: routing_paginas.yml
-    prefix: /sitio
-    defaults: { _controller: FrameworkBundle:Template:template }
+homepage:
+    path: /
+    defaults: { _controller: ClubsBundle:Sitio:estatica, pagina: 'ayuda' }
 
+#_paginas_estaticas:
+#    resource: routing_paginas.yml
+#    prefix: /sitio
+#    defaults: { _controller: FrameworkBundle:Template:template }
+#
 #pagina_estatica:
 #    path: /sitio/{pagina}
 #    defaults: { _controller: ClubsBundle:Sitio:estatica }

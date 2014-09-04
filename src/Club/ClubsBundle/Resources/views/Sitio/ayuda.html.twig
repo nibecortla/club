@@ -1,9 +1,9 @@
-{#{% extends '::layout.html.twig' %}#}
+{% extends '::base.html.twig' %}
 
     {% block contenido -%}
         <div class="panel panel-primary">
         <div class="panel-heading">
-            DEJOS
+            CLUB
 
 
         </div>
@@ -250,8 +250,8 @@
         </div>
 
         </div>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset("bundles/larabmgenerador/css/laradmin.css") }}">
-        {% endblock %}
+        {#{% block stylesheets %}#}
+            {#<link rel="stylesheet" href="{{ asset("bundles/larabmgenerador/css/laradmin.css") }}">#}
+        {#{% endblock %}#}
 
     {% endblock contenido %}

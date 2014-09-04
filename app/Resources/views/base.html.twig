@@ -1,13 +1,73 @@
+{% set usuario = app.user %}
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Club by NB"/>
+        <meta name="keywords" content="Desarrollo web, club, clubs, NB" />
+        <meta name="author" content="Nicolas Bertolotti"/>
+
+
+        <title> CLUB | {% block title %} {% endblock %}</title>
+
+        <link rel="stylesheet" href="{{  asset("bootstrap/css/bootstrap.min.css")   }}">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="{{  asset("bootstrap/css/bootstrap-theme.min.css")  }}">
+
+        <link rel="stylesheet" href="{{  asset("bundles/clubs/css/pnotify.custom.min.css")  }}">
+        <link rel="stylesheet" href="{{  asset("bundles/clubs/css/main.css")  }}">
         {% block stylesheets %}{% endblock %}
+
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="{{  asset("bootstrap/js/jquery-1.9.1.min.js") }}" ></script>
+        <script src="{{  asset("bootstrap/js/bootstrap.min.js") }}" ></script>
+
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+        {#<script src="js/custom.modernizr.js" type="text/javascript" ></script>#}
+        <script src="{{  asset("bundles/clubs/js/pnotify.custom.min.js") }}"></script>
+        <script src="{{  asset("bundles/clubs/js/main.js") }}"></script>
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {#{% block body %}{% endblock %}#}
+        {% block body %}
+            {#{% include 'includes/menu.html.twig' %}#}
+            <section id="main" class="container">
+                {#{% if usuario.empleador is defined %}#}
+                    {#<div class="alert alert-info alert-dismissable">#}
+                        {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>#}
+
+                        {#<h4>#}
+                            {#<a href="{{ path("empleador_perfil") }}">{{ usuario.empleador }}</a>&nbsp;#}
+                            {#{% if liquidacionActiva() %}#}
+                                {#<span>Liquidacion Activa: <a href="{{ path('liquidacion_show', {"id": liquidacionActiva() })}}">{{ liquidacionActivaMsg() }}</a> </span>#}
+                            {#{% endif %}#}
+                        {#</h4>#}
+
+                    {#</div>#}
+
+                {#{% endif %}#}
+                {% block contenido %}{% endblock %}
+            </section>
+
+            <footer class="container">
+                <p id="footer-text">
+                    <small>Copyright © 2014 <a href="http://www.riossoft.com.ar/">Rios Soft & IPSM Informatica</a></small>
+                </p>
+            </footer>
+
+        {% endblock body %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
