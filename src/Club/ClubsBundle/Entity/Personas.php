@@ -5,12 +5,12 @@ namespace Club\ClubsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Persona
+ * Personas
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Club\ClubsBundle\Entity\PersonaRepository")
+ * @ORM\Entity(repositoryClass="Club\ClubsBundle\Entity\PersonasRepository")
  */
-class Persona
+class Personas
 {
     /**
      * @var integer
@@ -22,6 +22,20 @@ class Persona
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="tipoDocumento", type="string", length=255)
+     */
+    private $tipoDocumento;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cluilCuit", type="integer")
+     */
+    private $cluilCuit;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="documento", type="integer")
@@ -29,18 +43,11 @@ class Persona
     private $documento;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="cuilCuit", type="integer")
-     */
-    private $cuilCuit;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombresApellidos", type="string", length=255)
      */
-    private $nombre;
+    private $nombresApellidos;
 
     /**
      * @var \DateTime
@@ -52,35 +59,42 @@ class Persona
     /**
      * @var string
      *
-     * @ORM\Column(name="estadoCivil", type="string", length=255)
+     * @ORM\Column(name="estadoCivil", type="string", length=1)
      */
     private $estadoCivil;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Domicilio", type="string", length=255)
+     * @ORM\Column(name="domicilio", type="string", length=255)
      */
     private $domicilio;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Localidad", type="string", length=255)
+     * @ORM\Column(name="localidad", type="string", length=100)
      */
     private $localidad;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Provincia", type="string", length=255)
+     * @ORM\Column(name="provincia", type="string", length=50)
      */
     private $provincia;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigoPostal", type="integer")
+     */
+    private $codigoPostal;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="Sexo", type="string", length=255)
+     * @ORM\Column(name="sexo", type="string", length=1)
      */
     private $sexo;
 
@@ -96,10 +110,56 @@ class Persona
     }
 
     /**
+     * Set tipoDocumento
+     *
+     * @param string $tipoDocumento
+     * @return Personas
+     */
+    public function setTipoDocumento($tipoDocumento)
+    {
+        $this->tipoDocumento = $tipoDocumento;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoDocumento
+     *
+     * @return string 
+     */
+    public function getTipoDocumento()
+    {
+        return $this->tipoDocumento;
+    }
+
+    /**
+     * Set cluilCuit
+     *
+     * @param integer $cluilCuit
+     * @return Personas
+     */
+    public function setCluilCuit($cluilCuit)
+    {
+        $this->cluilCuit = $cluilCuit;
+
+        return $this;
+    }
+
+    /**
+     * Get cluilCuit
+     *
+     * @return integer 
+     */
+    public function getCluilCuit()
+    {
+        return $this->cluilCuit;
+    }
+
+    /**
      * Set documento
      *
      * @param integer $documento
-     * @return Persona
+     * @return Personas
      */
     public function setDocumento($documento)
     {
@@ -119,56 +179,33 @@ class Persona
     }
 
     /**
-     * Set cuilCuit
+     * Set nombresApellidos
      *
-     * @param integer $cuilCuit
-     * @return Persona
+     * @param string $nombresApellidos
+     * @return Personas
      */
-    public function setCuilCuit($cuilCuit)
+    public function setNombresApellidos($nombresApellidos)
     {
-        $this->cuilCuit = $cuilCuit;
+        $this->nombresApellidos = $nombresApellidos;
 
         return $this;
     }
 
     /**
-     * Get cuilCuit
-     *
-     * @return integer 
-     */
-    public function getCuilCuit()
-    {
-        return $this->cuilCuit;
-    }
-
-    /**
-     * Set nombre
-     *
-     * @param string $nombre
-     * @return Persona
-     */
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-
-        return $this;
-    }
-
-    /**
-     * Get nombre
+     * Get nombresApellidos
      *
      * @return string 
      */
-    public function getNombre()
+    public function getNombresApellidos()
     {
-        return $this->nombre;
+        return $this->nombresApellidos;
     }
 
     /**
      * Set fechaNacimiento
      *
      * @param \DateTime $fechaNacimiento
-     * @return Persona
+     * @return Personas
      */
     public function setFechaNacimiento($fechaNacimiento)
     {
@@ -191,7 +228,7 @@ class Persona
      * Set estadoCivil
      *
      * @param string $estadoCivil
-     * @return Persona
+     * @return Personas
      */
     public function setEstadoCivil($estadoCivil)
     {
@@ -214,7 +251,7 @@ class Persona
      * Set domicilio
      *
      * @param string $domicilio
-     * @return Persona
+     * @return Personas
      */
     public function setDomicilio($domicilio)
     {
@@ -237,7 +274,7 @@ class Persona
      * Set localidad
      *
      * @param string $localidad
-     * @return Persona
+     * @return Personas
      */
     public function setLocalidad($localidad)
     {
@@ -260,7 +297,7 @@ class Persona
      * Set provincia
      *
      * @param string $provincia
-     * @return Persona
+     * @return Personas
      */
     public function setProvincia($provincia)
     {
@@ -280,10 +317,33 @@ class Persona
     }
 
     /**
+     * Set codigoPostal
+     *
+     * @param integer $codigoPostal
+     * @return Personas
+     */
+    public function setCodigoPostal($codigoPostal)
+    {
+        $this->codigoPostal = $codigoPostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoPostal
+     *
+     * @return integer 
+     */
+    public function getCodigoPostal()
+    {
+        return $this->codigoPostal;
+    }
+
+    /**
      * Set sexo
      *
      * @param string $sexo
-     * @return Persona
+     * @return Personas
      */
     public function setSexo($sexo)
     {
